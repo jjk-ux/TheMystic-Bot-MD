@@ -21,9 +21,9 @@ const handler = async (m, { conn, command, args, text, usedPrefix }) => {
 
   const yt_play = await search(args.join(' '));
   let additionalText = '';
-  if (command === 'play') {
+  if (command === 'اغنيه') {
     additionalText = 'audio';
-  } else if (command === 'play2') {
+  } else if (command === 'فديو') {
     additionalText = 'vídeo';
   }
 
@@ -31,7 +31,7 @@ const handler = async (m, { conn, command, args, text, usedPrefix }) => {
 
   conn.sendMessage(m.chat, { image: { url: yt_play[0].thumbnail }, caption: texto1 }, { quoted: m });
 
-  if (command === 'play') {
+  if (command === 'اغنيه') {
     try {
       const { status, resultados, error } = await ytmp33(yt_play[0].url);
       if (!status) throw new Error(error);
